@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import MovieList from './MovieList';
 import MovieService from '../../services/MovieService';
+import Form from '../Form';
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -17,6 +18,7 @@ const Movies = () => {
           <MovieList movies={movies} />
         </div>
       </div>
+        <Form addNewMovie={(movie) => { setMovies((oldMovies) => [...oldMovies,movie])}} />
     </div>
   );
 }
