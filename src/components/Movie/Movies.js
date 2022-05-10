@@ -15,11 +15,22 @@ const Movies = () => {
     setMovies(movies.filter(movie => movie.id!==movieToDelete.id));
   }
 
+  const handleMovieUpdate = (movieToUpdate) => { 
+    setMovies((oldValue) => {
+      return oldValue.map(movie => {
+        if(movie.id===movieToUpdate.id){
+          return movieToUpdate
+        }
+        return movie
+      })
+    });
+  }
+
   return (
     <div className="container-fluid" style={{ marginLeft: '-15px' }}>
       <div className="d-flex flex-row">
         <div className="col-sm-12">
-          <MovieList movies={movies} handleDeleteMovie={handleDeleteMovie} />
+          <MovieList movies={movies} handleDeleteMovie={handleDeleteMovie} handleMovieUpdate={handleMovieUpdate} />
         </div>
       </div>
         <Form addNewMovie={(movie) => { setMovies((oldMovies) => [...oldMovies,movie])}} />
