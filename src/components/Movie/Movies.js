@@ -11,11 +11,15 @@ const Movies = () => {
     setMovies(MovieService.getMovies());
   }, []);
 
+  const handleDeleteMovie = (movieToDelete) => { 
+    setMovies(movies.filter(movie => movie.id!==movieToDelete.id));
+  }
+
   return (
     <div className="container-fluid" style={{ marginLeft: '-15px' }}>
       <div className="d-flex flex-row">
         <div className="col-sm-12">
-          <MovieList movies={movies} />
+          <MovieList movies={movies} handleDeleteMovie={handleDeleteMovie} />
         </div>
       </div>
         <Form addNewMovie={(movie) => { setMovies((oldMovies) => [...oldMovies,movie])}} />

@@ -10,6 +10,7 @@ const Form = props => {
     imageUrl: '',
     description: '',
     rating: 0,
+    formCreated: true,
   });
 
   const[movieValidation,setMovieValidation] = useState(false)

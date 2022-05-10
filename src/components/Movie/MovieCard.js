@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import StarRating from '../StarRating';
 
-const MovieCard = ({ movie }) => (
+const MovieCard = ({ movie,handleDeleteMovie }) => (
   <div className="movie-card">
     <div className="movie-card card">
       <img className="card-img-top" src={movie.imageUrl} alt="" />
@@ -22,6 +22,7 @@ const MovieCard = ({ movie }) => (
           <div className="card-footer-badge float-right badge badge-primary badge-pill">{movie.rating}</div>
         </div>
       </div>
+        {movie.formCreated && (<div onClick={() => { handleDeleteMovie(movie) }}>Delete</div>)}
     </div>
   </div>
 );
